@@ -85,7 +85,7 @@ const createLinkList = (links) => {
 /*
  * Create an empty tree and fill the branches with links
  */
-const createNavTree = (links) => {
+const createNavTree = (links = []) => {
     const listLinks = createLinkList(links);
 
     let tree = [];

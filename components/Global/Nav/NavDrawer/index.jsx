@@ -1,5 +1,5 @@
 /*
- * NavList
+ * NavDrawer
  */
 
 import { useState } from 'react';

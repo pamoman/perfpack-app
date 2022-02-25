@@ -153,7 +153,7 @@ const getNavLinks = async () => {
     const res = await fetch(url);
     const resJson = await res.json();
 
-    const data = resJson.data;
+    const data = resJson?.data;
 
     const navTree = createNavTree(data);
 
