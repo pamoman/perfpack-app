@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { useLayout } from '@components/Contexts';
 import { NavController as Nav } from '@components/Global';
+import defaultsettings from './settings';
 import { AppBar, Box, Toolbar, Tooltip, IconButton, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -14,7 +15,8 @@ import CallIcon from '@mui/icons-material/Call';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import styles from './styles';
 
-const ApolloHeader = ({ title, logo, links = [], company }) => {
+const ApolloHeader = ({ title, logo, links = [], company, userSettings = {} }) => {
+    const settings = { ...defaultsettings, ...userSettings };
     const [open, setOpen] = useState(false);
     const layout = useLayout();
     const { location_url, mobile, email, email_subject, email_body } = company;
@@ -59,7 +61,7 @@ const ApolloHeader = ({ title, logo, links = [], company }) => {
                                     color="primary"
                                     noWrap
                                 >
-                                    {title.toUpperCase()}
+                                    {title}
                                 </Typography>
                             </Box>
                         </Link>
@@ -78,7 +80,7 @@ const ApolloHeader = ({ title, logo, links = [], company }) => {
                                     color="primary"
                                     noWrap
                                 >
-                                    {title.toUpperCase()}
+                                    {title}
                                 </Typography>
                             </Box>
                         </Link>
@@ -86,33 +88,41 @@ const ApolloHeader = ({ title, logo, links = [], company }) => {
 
                     <Nav type="menu" component="nav" links={links} />
                     
-                    <Box sx={styles.rightIcons}>
-                        <Tooltip title="Hitta oss">
-                            <IconButton href={location_url} target="_blank">
-                                <LocationOnIcon fontSize="large" color="primary" />
-                            </IconButton>
-                        </Tooltip>
+                    {settings.show_icons &&
+                        <Box sx={styles.rightIcons}>
+                            {settings.show_location &&
+                                <Tooltip title="Hitta oss">
+                                    <IconButton href={location_url} target="_blank">
+                                        <LocationOnIcon fontSize="large" color="primary" />
+                                    </IconButton>
+                                </Tooltip>
+                            }
+                            
+                            {settings.show_email &&
+                                <Tooltip title="Skicka e-post till oss">
+                                    <IconButton
+                                        href={`
+                                            mailto:${email}`
+                                            + `?`
+                                            + `subject=${email_subject}`
+                                            + `&`
+                                            + `body=${email_body}`
+                                        }
+                                    >
+                                        <MailOutlineIcon fontSize="large" color="primary" />
+                                    </IconButton>
+                                </Tooltip>
+                            }
 
-                        <Tooltip title="Skicka e-post till oss">
-                            <IconButton
-                                href={`
-                                    mailto:${email}`
-                                    + `?`
-                                    + `subject=${email_subject}`
-                                    + `&`
-                                    + `body=${email_body}`
-                                }
-                            >
-                                <MailOutlineIcon fontSize="large" color="primary" />
-                            </IconButton>
-                        </Tooltip>
-
-                        <Tooltip title="Ringa till oss">
-                            <IconButton href={`tel:${mobile}`}>
-                                <CallIcon fontSize="large" color="primary" />
-                            </IconButton>
-                        </Tooltip>
-                    </Box>
+                            {settings.show_phone &&
+                                <Tooltip title="Ringa till oss">
+                                    <IconButton href={`tel:${mobile}`}>
+                                        <CallIcon fontSize="large" color="primary" />
+                                    </IconButton>
+                                </Tooltip>
+                            }
+                        </Box>
+                    }
                 </Toolbar>
             </Box>
         </AppBar>
