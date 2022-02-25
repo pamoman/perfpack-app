@@ -19,7 +19,7 @@ const isActive = (href) => {
     return router.asPath === href ? "active" : null;
 };
 
-const NavList = ({ key, link, sub = false }) => {
+const NavList = ({ link, sub = false }) => {
     const { node = "", path = "", label = node, children = [] } = link;
 
     const [open, setOpen] = useState(true);
@@ -29,7 +29,7 @@ const NavList = ({ key, link, sub = false }) => {
     };
 
     return (
-        <List key={key} component="div" disablePadding>
+        <List key={`nav-drawer-${node}`} component="div" disablePadding>
             <ListItemButton sx={() => styles.navList.collapsed(sub)} disabled={!path && true}>
                 {path ?
                     <NextLink
@@ -58,7 +58,7 @@ const NavList = ({ key, link, sub = false }) => {
 
             {children && children.length > 0 && (
                 children.map((child, i) => (
-                    <NavListCollapsed key={`nav-sub-drawer-${i}`} open={open}>
+                    <NavListCollapsed open={open} index={i}>
                         <NavList link={child} sub={true} />
                     </NavListCollapsed>
                 ))
@@ -67,9 +67,9 @@ const NavList = ({ key, link, sub = false }) => {
     )
 };
 
-const NavListCollapsed = ({ key, open, children }) => {
+const NavListCollapsed = ({ index, open, children }) => {
     return (
-        <Collapse key={key} in={open} timeout="auto" unmountOnExit>
+        <Collapse key={`nav-sub-drawer-${index}`} in={open} timeout="auto" unmountOnExit>
             {children}
         </Collapse>
     )
@@ -110,9 +110,9 @@ const PamoNavDrawer = ({ links = [], open, toggleOpen, ...props }) => {
                 <Divider sx={styles.drawer.divider} />
 
                 <Box sx={styles.navList} {...props}>
-                    {links.map((link, i) => {
+                    {links.map(link => {
                         return (
-                            <NavList key={`nav-drawer-${i}`} link={link} />
+                            <NavList link={link} />
                         )
                     })}
                 </Box>

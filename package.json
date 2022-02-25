@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "npm run getGlobals && next dev",
+    "build": "npm run getGlobals && next build",
+    "start": "next start -p 3028",
     "lint": "next lint",
     "getGlobals": "node ./services/globals.mjs",
     "rebuild": "npm run build && pm2 restart App-name"

@@ -125,7 +125,7 @@ const getCompanyInfo = async () => {
     const res = await fetch(url);
     const resJson = await res.json();
 
-    const data = resJson.data.attributes;
+    const data = resJson?.data?.attributes || {};
 
     /*
      * Write company data to a local json file
@@ -146,7 +146,6 @@ const getCompanyInfo = async () => {
  */
 const getNavLinks = async () => {
     const dataPath = process.env.GLOBAL_DATA_PATH;
-    const linksPath = `${dataPath}/links.json`;
     const navTreePath = `${dataPath}/nav-tree.json`;
 
     const url = `${process.env.NEXT_PUBLIC_API_URL}/${process.env.PAGES_API_ROUTE}`;
@@ -155,19 +154,6 @@ const getNavLinks = async () => {
     const resJson = await res.json();
 
     const data = resJson.data;
-
-    /*
-     * Write navigation links to a local json file
-     */
-    fs.writeFile(
-        linksPath,
-        JSON.stringify(data, null, 4),
-        err => {
-            if (err) throw err;
-
-            console.info(`Navigation Links written to file ${linksPath}\n`);
-        },
-    );
 
     const navTree = createNavTree(data);
 
