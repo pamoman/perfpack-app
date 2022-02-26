@@ -25,7 +25,7 @@ const PamoHero = ({ heading, variant, formats, alternativeText, links }) => {
             <Box sx={styles.contentContainer}>
                 <Grid sx={styles.content} container>
                     <Grid item>
-                        <Typography sx={styles.title} variant={variant} component="h1">
+                        <Typography sx={styles.title} variant={variant} component="h1" align="center">
                             {heading}
                         </Typography>
                     </Grid>

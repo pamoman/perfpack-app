@@ -7,9 +7,7 @@ const styles = {
         position: "relative",
         backgroundColor: "#000",
     },
-    slideshowImage: {
-        padding: "1rem 3rem 1rem 3rem"
-    },
+    slideshowImage: {},
     slideshowCaption: theme => ({
         backgroundColor: "background.dark",
         ...theme.palette.figcaption.props

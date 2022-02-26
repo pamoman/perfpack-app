@@ -53,20 +53,24 @@ const styles = {
             md: 'flex'
         },
         ml: 2,
-        mr: 6,
+        mr: 4,
     },
     logoMobile: {
         flexGrow: 1,
         alignItems: "center",
-        justifyContent: "flex-start",
         display: {
             xs: 'flex',
             md: 'none'
         }
     },
+    logotext: {
+        display: 'flex',
+        alignItems: "center",
+    },
     logo: {
         display: 'flex',
         alignItems: "center",
+        mr: 1
     },
     rightIcons: {
         display: "flex",

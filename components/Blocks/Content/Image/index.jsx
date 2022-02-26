@@ -9,9 +9,9 @@ import styles from './styles';
 
 const PamoImage = ({ formats, caption, alternativeText, userSettings }) => {
     const { show_caption } = { ...defaultSettings, ...userSettings };
-    const url = formats?.large?.url;
+    const { url } = formats?.large || formats?.medium || formats?.small;
 
-    return (
+    return (url ?
         <Grid container justifyContent="center">
             <Grid item xs={12}>
                 <Image 
@@ -28,6 +28,8 @@ const PamoImage = ({ formats, caption, alternativeText, userSettings }) => {
                 }
             </Grid>
         </Grid>
+        :
+        null
     )
 };
 

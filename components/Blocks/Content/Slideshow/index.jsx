@@ -116,13 +116,13 @@ const PamoSlideshow = ({ images, userSettings }) => {
                                             src={`${process.env.NEXT_PUBLIC_API_URL}${url}`}
                                             alt={alternativeText}
                                             layout='responsive'
-                                            objectFit='contain'
-                                            width={16}
-                                            height={9}
+                                            objectFit='cover'
+                                            width={4}
+                                            height={3}
                                         />
                                     </Box>
 
-                                    {caption &&
+                                    {settings.show_caption && caption &&
                                         <Box sx={styles.slideshowCaption} component="figcaption">
                                             <Typography color="primary" variant="subtitle1">{caption}</Typography>
                                         </Box>

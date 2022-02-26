@@ -50,10 +50,12 @@ const ApolloHeader = ({ title, logo, links = [], company, userSettings = {} }) =
 
                     <Box sx={styles.logoDesktop}>   
                         <Link href="/" passHref>
-                            <Box sx={styles.logo}>
-                                {logo?.data?.attributes?.name &&
-                                     <Image className="logo-image" src={`/${logo?.data.attributes.name}`} alt={title} width={50} height={50} />
-                                }
+                            <Box sx={styles.logotext}>
+                                <Box sx={styles.logo}>
+                                    {logo?.data?.attributes?.name &&
+                                        <Image className="logo-image" src={`/${logo?.data.attributes.name}`} alt={title} width={50} height={50} />
+                                    }
+                                </Box>
 
                                 <Typography
                                     component="h6"
@@ -69,10 +71,12 @@ const ApolloHeader = ({ title, logo, links = [], company, userSettings = {} }) =
 
                     <Box sx={styles.logoMobile}>
                         <Link href="/" passHref>
-                            <Box sx={styles.logo}>
-                                {logo?.data?.attributes?.name &&
-                                    <Image src={`/${logo?.data.attributes.name}`} alt={title} width={50} height={50} />
-                                }
+                            <Box sx={styles.logotext}>
+                                <Box sx={styles.logo}>
+                                    {logo?.data?.attributes?.name &&
+                                        <Image src={`/${logo?.data.attributes.name}`} alt={title} width={50} height={50} />
+                                    }
+                                </Box>
 
                                 <Typography
                                     component="h6"
