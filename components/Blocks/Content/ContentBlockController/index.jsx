@@ -99,7 +99,9 @@ const PamoContentBlockController = ({ __typename, ...rest }, index) => {
             Block = Content.Company;
             break;
         case 'ComponentContentStaff':
-            const { users_permissions_users: { data: staff }, settings: staffSettings } = rest;
+            const { employees, settings: staffSettings } = rest;
+
+            const staff = employees.map(employee => employee?.users_permissions_user?.data?.attributes || {});
 
             props = {
                 people: staff,
@@ -109,7 +111,7 @@ const PamoContentBlockController = ({ __typename, ...rest }, index) => {
             Block = Content.People;
             break;
         case 'ComponentContentPeople':
-            const { person: people, settings: peopleSettings } = rest;
+            const { people, settings: peopleSettings } = rest;
 
             props = {
                 people,
@@ -127,6 +129,16 @@ const PamoContentBlockController = ({ __typename, ...rest }, index) => {
             };
 
             Block = Content.Map;
+            break;
+        case 'ComponentContentTable':
+            const { settings: tableSettings, ...table } = rest;
+
+            props = {
+                ...table,
+                userSettings: tableSettings
+            };
+
+            Block = Content.Table;
             break;
     }
 

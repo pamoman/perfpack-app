@@ -12,7 +12,7 @@ const theme = createTheme({
             main: 'rgb(0, 0, 0)',
         },
         background: {
-            light: 'rgb(18, 29, 38, 0.5)',
+            light: 'rgb(18, 29, 38, 0.8)',
             main: 'rgb(18, 29, 38, 1)',
             dark: 'rgb(6, 13, 19, 1)',
         },

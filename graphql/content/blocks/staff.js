@@ -11,28 +11,32 @@ export const settings = `
         show_bio
         show_tel
         show_mobile
+        company_email
     }
 `;
 
 export default `
     ... on ComponentContentStaff {
-        users_permissions_users {
-            data {
-                attributes {
-                    firstname
-                    lastname
-                    email
-                    title
-                    bio
-                    tel
-                    mobile
-                    image {
-                        data {
-                            attributes {
-                                alternativeText
-                                caption
-                                formats
-                                url
+        employees {
+            name
+            users_permissions_user {
+                data {
+                    attributes {
+                        firstname
+                        lastname
+                        email
+                        title
+                        bio
+                        tel
+                        mobile
+                        image {
+                            data {
+                                attributes {
+                                    alternativeText
+                                    caption
+                                    formats
+                                    url
+                                }
                             }
                         }
                     }

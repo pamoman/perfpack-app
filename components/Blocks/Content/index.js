@@ -14,6 +14,7 @@ import Video from './Video';
 import Wysiwyg from './Wysiwyg';
 import Company from './Company';
 import Map from './Map';
+import Table from './Table';
 import People, { PersonCard } from './People';
 
 export {
@@ -29,6 +30,7 @@ export {
     Wysiwyg,
     Company,
     Map,
+    Table,
     People
 };
 

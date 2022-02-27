@@ -4,6 +4,7 @@
 
 import Image from 'next/image';
 import defaultSettings from './settings';
+import { company } from '@data/Global';
 import { Typography, IconButton, Tooltip, Card, CardHeader, CardContent, CardActions, Avatar } from '@mui/material';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import CallIcon from '@mui/icons-material/Call';
@@ -55,14 +56,14 @@ const PamoPersonCard = ({ person, userSettings }) => {
                         <IconButton
                             sx={styles.iconText}
                             href={`
-                                mailto:${email}`
+                                mailto:${settings.company_email ? company.email : email}`
                                 + `?`
-                                + `subject=Information`
+                                + `subject=Information${settings.company_email ? " - " + firstname + " " + lastname : ""}`
                             }
                             color="primary"
                         >
                             <MailOutlineIcon fontSize="large" />
-                            <Typography variant="subtitle1">{email}</Typography>
+                            <Typography variant="subtitle1">{settings.company_email ? company.email : email}</Typography>
                         </IconButton>
                     </Tooltip>
                 }

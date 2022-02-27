@@ -11,12 +11,13 @@ export const settings = `
         show_bio
         show_tel
         show_mobile
+        company_email
     }
 `;
 
 export default `
     ... on ComponentContentPeople {
-        person {
+        people {
             firstname
             lastname
             email

@@ -15,6 +15,7 @@ import staff from './blocks/staff';
 import stream from './blocks/stream';
 import video from './blocks/video';
 import wysiwyg from './blocks/wysiwyg';
+import table from './blocks/table';
 
 const blocks = `
     ${company}
@@ -29,6 +30,7 @@ const blocks = `
     ${stream}
     ${video}
     ${wysiwyg}
+    ${table}
 `;
 
 export default `
