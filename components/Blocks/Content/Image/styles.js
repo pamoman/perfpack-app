@@ -1,5 +1,5 @@
 /* 
- * Styles
+ * Image - Styles
  */
 
 const styles = {

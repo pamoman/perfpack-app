@@ -12,11 +12,12 @@ const PamoStream = ({ url, caption, userSettings }) => {
 
     return (
         <Grid container justifyContent="center">
-            <Grid sx={styles.streamContainer} item xs={12}>
+            <Grid sx={ (theme) => styles.streamContainer(theme, settings)} item xs={12}>
                 <ReactPlayer
                     className="react-player"
                     url={url}
                     playing={settings.autoplay}
+                    loop={settings.loop}
                     muted={settings.muted}
                     controls={settings.controls}
                     width="100%"

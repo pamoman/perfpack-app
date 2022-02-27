@@ -1,5 +1,5 @@
 /* 
- * Styles
+ * Hero - Styles
  */
 
 const styles = {

@@ -1,5 +1,5 @@
 /* 
- * Styles
+ * Map - Styles
  */
 
 const styles = {

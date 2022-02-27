@@ -8,6 +8,9 @@ export const settings = `
         muted
         controls
         show_caption
+        loop
+        cover_screen
+        background_color
     }
 `;
 

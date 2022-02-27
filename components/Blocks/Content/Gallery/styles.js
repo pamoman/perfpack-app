@@ -1,5 +1,5 @@
 /* 
- * Styles
+ * Gallery - Styles
  */
 
 const styles = {

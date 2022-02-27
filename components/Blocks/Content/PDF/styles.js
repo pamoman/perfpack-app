@@ -1,5 +1,5 @@
 /* 
- * Styles
+ * PDF - Styles
  */
 
 const styles = {

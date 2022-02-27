@@ -1,5 +1,5 @@
 /* 
- * Styles
+ * Company - Styles
  */
 
 const styles = {};

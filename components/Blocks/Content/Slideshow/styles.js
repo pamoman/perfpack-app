@@ -1,5 +1,5 @@
 /* 
- * Styles
+ * Slideshow - Styles
  */
 
 const styles = {

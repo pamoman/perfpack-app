@@ -1,5 +1,5 @@
 /* 
- * Styles
+ * People - Styles
  */
 
 const styles = {
