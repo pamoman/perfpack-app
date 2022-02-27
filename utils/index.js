@@ -3,6 +3,18 @@
  */
 
 export default {
+    getIconType: (type) => {
+        switch (type) {
+            case "light":
+                return "fal";
+            case "regular":
+                return "far";
+            case "solid":
+                return "fas";
+            default:
+                return "fas";
+        };
+    },
     pathToArray: (path = "") => {
         const cleanPath = path.replace(/^\/|\/$/g, '');
         const arr = cleanPath.split("/");

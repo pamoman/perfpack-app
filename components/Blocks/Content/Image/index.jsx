@@ -9,7 +9,7 @@ import styles from './styles';
 
 const PamoImage = ({ formats, caption, alternativeText, userSettings }) => {
     const { show_caption } = { ...defaultSettings, ...userSettings };
-    const { url } = formats?.large || formats?.medium || formats?.small;
+    const { url } = formats?.xlarge || formats?.large || formats?.medium || formats?.small;
 
     return (url ?
         <Grid container justifyContent="center">
@@ -21,6 +21,7 @@ const PamoImage = ({ formats, caption, alternativeText, userSettings }) => {
                     objectFit='cover'
                     width={16}
                     height={9}
+                    priority={true}
                 />
                 
                 {show_caption &&

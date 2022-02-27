@@ -11,6 +11,8 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import CloseIcon from '@mui/icons-material/Close';
 import Collapse from '@mui/material/Collapse';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import utils from '@utils';
 import styles from './styles';
 
 const isActive = (href) => {
@@ -20,7 +22,7 @@ const isActive = (href) => {
 };
 
 const NavList = ({ link, sub = false }) => {
-    const { node = "", path = "", label = node, children = [] } = link;
+    const { node = "", path = "", label = node, icon, children = [] } = link;
 
     const [open, setOpen] = useState(true);
 
@@ -37,13 +39,13 @@ const NavList = ({ link, sub = false }) => {
                         passHref
                     >
                         <Button>
-                            <NavListItem path={path} label={label} />
+                            <NavListItem path={path} label={label} icon={icon} />
                         </Button>
                     </NextLink>
 
                     :
 
-                    <NavListItem path={path} label={label} />
+                    <NavListItem path={path} label={label} icon={icon} />
                 }
 
                 {children && children.length > 0 &&
@@ -75,8 +77,10 @@ const NavListCollapsed = ({ index, open, children }) => {
     )
 };
 
-const NavListItem = ({ path, label }) => {
+const NavListItem = ({ path, label, icon }) => {
     const active = isActive(path);
+    const { type, name: IconName } = icon || {};
+    const iconType = utils.getIconType(type);
 
     return (
         <>

@@ -70,7 +70,7 @@ const getGlobals = async () => {
      * Get site pwa
      */
     if (pwa) {
-        const { manifest, icons } = pwa;
+        const { manifest, icons: { data: icons } } = pwa;
 
         fs.writeFile(
             manifestPath,
@@ -84,10 +84,9 @@ const getGlobals = async () => {
         
         let processed = 0;
     
-        if (icons) {
+        if (icons && icons.length > 0) {
             icons.forEach(async (icon, i) => {
-                const imageUrl = icon.url;
-                const imageName = icon.name;
+                const { url: imageUrl, name: imageName } = icon?.attributes;
         
                 const streamPipeline = promisify(pipeline);
                 const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${imageUrl}`);

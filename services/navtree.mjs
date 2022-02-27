@@ -25,6 +25,7 @@ const getNextBranch = (branch, node) => {
         const child = {
             label: node.charAt(0).toUpperCase() + node.slice(1),
             path: null,
+            icon: null,
             node,
             children: []
         };
@@ -43,7 +44,7 @@ const getNextBranch = (branch, node) => {
  * otherwise find the parent branch and give it a child (WTF!)
  */
 const addToTree = (link, branch) => {
-    const { label, path } = link;
+    const { label, path, icon } = link;
 
     const nodes = pathToArray(path);
 
@@ -54,6 +55,7 @@ const addToTree = (link, branch) => {
             const child = {
                 label,
                 path,
+                icon,
                 node,
                 children: []
             };
@@ -70,13 +72,14 @@ const addToTree = (link, branch) => {
  */
 const createLinkList = (links) => {
     return links.map(link => {
-        const { label, path } = link.attributes;
+        const { label, path, icon } = link.attributes;
 
         const pathList = pathToArray(path);
 
         return {
             label,
             path,
+            icon,
             node: pathList.slice(-1)[0],
         }
     });

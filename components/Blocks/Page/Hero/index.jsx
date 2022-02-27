@@ -8,7 +8,7 @@ import styles from './styles';
 import { Grid, Box, Typography, Button } from '@mui/material';
 
 const PamoHero = ({ heading, variant, formats, alternativeText, links }) => {
-    const url = formats?.large?.url;
+    const { url } = formats?.xlarge || formats?.large || formats?.medium || formats?.small;
 
     return (
         <Box sx={styles.hero} component="section">
