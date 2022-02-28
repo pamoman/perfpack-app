@@ -5,11 +5,20 @@
 import * as Page from '@components/Blocks/Page';
 
 const PamoPageBlockController = ({ __typename, ...rest }, index) => {
-
     let Block;
     let props;
 
     switch(__typename) {
+        case 'ComponentPageSeo':
+            const { image: { data: { attributes: image } }, ...pageSeo } = rest;
+
+            props = {
+                image,
+                ...pageSeo
+            };
+
+            Block = Page.Seo;
+            break;
         case 'ComponentPageHeading':
             const { ...pageHeading } = rest;
 

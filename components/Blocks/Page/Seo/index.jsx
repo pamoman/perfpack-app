@@ -7,6 +7,10 @@ import { globals } from '@data/Global';
 
 const PamoSEO = ({ title, description, url, image }) => {
     const { header } = globals;
+    const { formats } = image;
+    const { url: imageUrl } = formats?.small || formats?.thumbnail || null;
+
+    console.log(title);
 
     return (
         <Head>
@@ -14,7 +18,7 @@ const PamoSEO = ({ title, description, url, image }) => {
             <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
             {description && <meta property="og:description" content={description} key="ogdesc" />}
             {url && <meta property="og:url" content={url} key="ogurl" />}
-            {image?.url && <meta property="og:image" content={`${process.env.NEXT_PUBLIC_API_URL}${image?.url}`} key="ogimage" />}
+            {imageUrl && <meta property="og:image" content={`${process.env.NEXT_PUBLIC_API_URL}${imageUrl}`} key="ogimage" />}
         </Head>
     )
 };
