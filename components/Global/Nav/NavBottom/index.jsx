@@ -2,11 +2,9 @@
  * NavBottom
  */
 
-import { Link as PamoLink } from '@components/Shared';
+import { Link as PamoLink, FaIcon as Icon } from '@components/Shared';
 import { useRouter } from 'next/router';
 import { BottomNavigation, BottomNavigationAction } from '@mui/material';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import utils from '@utils';
 import styles from './styles';
 
 const isActive = (href) => {
@@ -20,8 +18,7 @@ const PamoNavBottom = ({ links = [], ...props }) => {
         <BottomNavigation sx={styles.bottomNav} {...props}>
             {links.map((link, i) => {
                 const { path, label, icon } = link;
-                const { type, name: IconName } = icon || {};
-                const iconType = utils.getIconType(type);
+                const { name: IconName } = icon || {};
 
                 return (
                     <BottomNavigationAction
@@ -32,7 +29,7 @@ const PamoNavBottom = ({ links = [], ...props }) => {
                         href={path}
                         passHref
                         label={label}
-                        icon={<FontAwesomeIcon icon={[iconType, IconName || "memo"]} size="lg" />}
+                        icon={<Icon name={IconName} size='xl' />}
                     />
                 )
             })}

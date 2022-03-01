@@ -8,8 +8,6 @@ import { CacheProvider } from '@emotion/react';
 import createEmotionCache from '@styles/createEmotionCache';
 import { ThemeProvider } from '@mui/material/styles';
 import { CssBaseline, GlobalStyles } from '@mui/material';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
 import theme, { globalStyle } from '@themes/dark';
 import { Layout } from '@components/Global';
 
@@ -21,8 +19,6 @@ const App = (props) => {
     const apolloClient = useApollo(apolloState);
     const [message, setMessage] = useState({ open: false, text: "", severity: "success" });
     const layout = getLayout(pageLayout);
-    
-    library.add(fas);
 
     return (
         <CacheProvider value={emotionCache}>

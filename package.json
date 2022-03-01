@@ -24,6 +24,7 @@
     "@mui/icons-material": "^5.4.2",
     "@mui/lab": "^5.0.0-alpha.70",
     "@mui/material": "^5.4.3",
+    "babel-plugin-macros": "^3.1.0",
     "dotenv": "^16.0.0",
     "google-map-react": "^2.1.10",
     "graphql": "^16.3.0",

@@ -10,8 +10,6 @@ const PamoSEO = ({ title, description, url, image }) => {
     const { formats } = image;
     const { url: imageUrl } = formats?.small || formats?.thumbnail || null;
 
-    console.log(title);
-
     return (
         <Head>
             <title>{title || header?.title}</title>

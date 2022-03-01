@@ -5,14 +5,12 @@
 import { useState } from 'react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
+import { FaIcon as Icon } from '@components/Shared';
 import { Box, Button, IconButton, Drawer, Divider, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
-import DescriptionIcon from '@mui/icons-material/Description';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import CloseIcon from '@mui/icons-material/Close';
 import Collapse from '@mui/material/Collapse';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import utils from '@utils';
 import styles from './styles';
 
 const isActive = (href) => {
@@ -79,13 +77,12 @@ const NavListCollapsed = ({ index, open, children }) => {
 
 const NavListItem = ({ path, label, icon }) => {
     const active = isActive(path);
-    const { type, name: IconName } = icon || {};
-    const iconType = utils.getIconType(type);
+    const { name: IconName } = icon || {};
 
     return (
         <>
-            <ListItemIcon>
-                <DescriptionIcon className={active} sx={styles.navList.link.icon} />
+            <ListItemIcon className={`${active}`} sx={styles.navList.link.icon}>
+                <Icon name={IconName} size='xl' />
             </ListItemIcon>
 
             <ListItemText className={active} sx={styles.navList.link.text}>

@@ -3,7 +3,9 @@
  */
 
 import Link from './Link';
+import FaIcon from './FaIcon';
 
 export {
-    Link
+    Link,
+    FaIcon
 };
