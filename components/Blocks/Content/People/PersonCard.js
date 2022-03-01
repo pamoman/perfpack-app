@@ -15,7 +15,7 @@ const PamoPersonCard = ({ person, userSettings }) => {
 
     const { firstname, lastname, email, title, bio, tel, mobile, image } = person?.attributes || person || {};
     const { formats, alternativeText } = image?.data?.attributes || {};
-    const { url: imageUrl } = formats?.thumbnail || {};
+    const { url: imageUrl } = formats?.large || formats?.medium || formats?.small || formats?.thumbnail || {};
 
     return (
         <Card sx={styles.card} raised>

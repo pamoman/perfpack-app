@@ -4,14 +4,16 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './styles';
+import defaultsettings from './settings';
 import { Grid, Box, Typography, Button } from '@mui/material';
+import styles from './styles';
 
-const PamoHero = ({ heading, variant, formats, alternativeText, links }) => {
+const PamoHero = ({ heading, variant, formats, alternativeText, links, userSettings = {} }) => {
+    const settings = { ...defaultsettings, ...userSettings };
     const { url } = formats?.xlarge || formats?.large || formats?.medium || formats?.small;
 
     return (
-        <Box sx={styles.hero} component="section">
+        <Box sx={(theme) => styles.hero(theme, settings)} component="section">
             <Box sx={styles.overlay} />
 
             <Image
@@ -20,6 +22,7 @@ const PamoHero = ({ heading, variant, formats, alternativeText, links }) => {
                 layout="fill"
                 objectFit="cover"
                 priority={true}
+                className="hero-image"
             />
 
             <Box sx={styles.contentContainer}>

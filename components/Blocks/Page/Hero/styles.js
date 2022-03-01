@@ -3,12 +3,18 @@
  */
 
 const styles = {
-    hero: theme => ({
+    hero: (theme, settings) => ({
         position: "absolute",
         top: 0,
         left: 0,
         width: "100vw",
         height: theme.layout.hero.height,
+        "& .hero-image": {
+            objectPosition: `${settings.desktop_postion_x}% ${settings.desktop_position_y}%`,
+            [theme.breakpoints.down('md')]: {
+                objectPosition: `${settings.mobile_position_x}% ${settings.mobile_position_y}%`
+            },
+        }
     }),
     overlay: {
         position: 'absolute',

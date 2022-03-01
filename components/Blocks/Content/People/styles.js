@@ -14,8 +14,8 @@ const styles = {
         height: "100%",
     },
     avatar: {
-        width: 100,
-        height: 100
+        width: 125,
+        height: 125
     },
     iconText: {
         "& h6": {

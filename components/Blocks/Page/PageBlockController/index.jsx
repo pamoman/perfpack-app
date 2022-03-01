@@ -29,12 +29,13 @@ const PamoPageBlockController = ({ __typename, ...rest }, index) => {
             Block = Page.Heading;
             break;
         case 'ComponentPageHero':
-            const { image: { data: { attributes: heroImage } }, page_heading: heroHeading, links } = rest;
+            const { image: { data: { attributes: heroImage } }, page_heading: heroHeading, links, settings: heroSettings } = rest;
 
             props = {
                 ...heroImage,
                 ...heroHeading,
-                links
+                links,
+                userSettings: heroSettings
             };
 
             Block = Page.Hero;
