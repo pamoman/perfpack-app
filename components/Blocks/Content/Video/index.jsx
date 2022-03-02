@@ -7,7 +7,7 @@ import defaultSettings from './settings';
 import { Grid, Typography } from '@mui/material';
 import styles from './styles';
 
-const Component = ({ url, caption, userSettings }) => {
+const Video = ({ url, caption, userSettings }) => {
     const settings = { ...defaultSettings, ...userSettings };
 
     return (
@@ -32,19 +32,6 @@ const Component = ({ url, caption, userSettings }) => {
                 </Grid>
             }
         </Grid>
-    )
-};
-
-const Video = (data) => {
-    const { settings: videoSettings, video: { data: { attributes: video } } } = data;
-
-    const props = {
-        ...video,
-        userSettings: videoSettings
-    };
-
-    return (
-        <Component {...props} />
     )
 };
 

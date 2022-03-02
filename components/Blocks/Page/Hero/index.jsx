@@ -8,7 +8,7 @@ import defaultsettings from './settings';
 import { Grid, Box, Typography, Button } from '@mui/material';
 import styles from './styles';
 
-const Component = ({ heading, variant, formats, alternativeText, links, userSettings = {} }) => {
+const Hero = ({ heading, variant, formats, alternativeText, links, userSettings = {} }) => {
     const settings = { ...defaultsettings, ...userSettings };
     const { url } = formats?.xlarge || formats?.large || formats?.medium || formats?.small;
 
@@ -53,21 +53,6 @@ const Component = ({ heading, variant, formats, alternativeText, links, userSett
                 </Grid>
             </Box>
         </Box>
-    )
-};
-
-const Hero = (props) => {
-    const { image: { data: { attributes: heroImage } }, page_heading: heroHeading, links, settings: heroSettings } = props;
-
-    props = {
-        ...heroImage,
-        ...heroHeading,
-        links,
-        userSettings: heroSettings
-    };
-
-    return (
-        <Component {...props} />
     )
 };
 

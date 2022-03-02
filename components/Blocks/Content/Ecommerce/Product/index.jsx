@@ -5,23 +5,10 @@
 import defaultSettings from './settings';
 import styles from './styles';
 
-const Component = ({ userSettings = {}}) => {
+const Product = ({ userSettings = {}}) => {
     return (
         <>
         </>
-    )
-};
-
-const Product = (data) => {
-    const { settings: productSettings, ...product } = data;
-
-    const props = {
-        ...product,
-        userSettings: productSettings
-    };
-
-    return (
-        <Component {...props} />
     )
 };
 

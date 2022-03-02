@@ -7,7 +7,7 @@ import defaultSettings from './settings';
 import { Grid, Typography } from '@mui/material';
 import styles from './styles';
 
-const Component = ({ formats, caption, alternativeText, userSettings }) => {
+const Image = ({ formats, caption, alternativeText, userSettings }) => {
     const { show_caption } = { ...defaultSettings, ...userSettings };
     const { url } = formats?.xlarge || formats?.large || formats?.medium || formats?.small;
 
@@ -31,19 +31,6 @@ const Component = ({ formats, caption, alternativeText, userSettings }) => {
         </Grid>
         :
         null
-    )
-};
-
-const Image = (data) => {
-    const { image: { data: { attributes: image } }, settings: imageSettings } = data;
-
-    const props = {
-        ...image,
-        userSettings: imageSettings
-    };
-
-    return (
-        <Component {...props} />
     )
 };
 

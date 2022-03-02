@@ -11,7 +11,7 @@ import styles from './styles';
 
 pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.js';
 
-const Component = ({ url, caption, alternativeText }) => {
+const PDF = ({ url, caption, alternativeText }) => {
     const [numPages, setNumPages] = useState(null);
     const [pageNumber, setPageNumber] = useState(1);
     const multiPage = numPages > 1;
@@ -76,18 +76,6 @@ const Component = ({ url, caption, alternativeText }) => {
                 }
             </Grid>
         </Grid>
-    )
-};
-
-const PDF = (data) => {
-    const { file: { data: { attributes: file } } } = data;
-
-    const props = {
-        ...file
-    };
-
-    return (
-        <Component {...props} />
     )
 };
 

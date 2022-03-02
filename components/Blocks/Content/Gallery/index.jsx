@@ -8,7 +8,7 @@ import { Grid, Typography } from '@mui/material';
 import SimpleReactLightbox, { SRLWrapper } from "simple-react-lightbox";
 import styles from './styles';
 
-const Component = ({ gallery, userSettings, userOptions }) => {
+const Gallery = ({ gallery, userSettings, userOptions }) => {
     const settings = { ...defaultSettings.settings, ...userSettings };
     const defaultOptions = defaultSettings.options;
 
@@ -48,20 +48,6 @@ const Component = ({ gallery, userSettings, userOptions }) => {
                 </Grid>
             </SRLWrapper>
         </SimpleReactLightbox>
-    )
-};
-
-const Gallery = (data) => {
-    const { images: { data: gallery }, settings: gallerySettings, ...galleryOptions } = data;
-
-    const props = {
-        gallery,
-        userSettings: gallerySettings,
-        userOptions: galleryOptions
-    };
-
-    return (
-        <Component {...props} />
     )
 };
 

@@ -15,7 +15,7 @@ import Wysiwyg from './Wysiwyg';
 import Company from './Company';
 import Map from './Map';
 import Table from './Table';
-import { People, Staff, PersonCard } from './People';
+import People, { PersonCard } from './People';
 import { Product } from './Ecommerce';
 
 export {
@@ -32,8 +32,7 @@ export {
     Company,
     Map,
     Table,
-    People,
-    Staff
+    People
 };
 
 export {

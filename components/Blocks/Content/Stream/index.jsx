@@ -7,7 +7,7 @@ import defaultSettings from './settings';
 import { Grid, Typography } from '@mui/material';
 import styles from './styles';
 
-const Component = ({ url, caption, userSettings }) => {
+const Stream = ({ url, caption, userSettings }) => {
     const settings = { ...defaultSettings, ...userSettings };
 
     return (
@@ -31,19 +31,6 @@ const Component = ({ url, caption, userSettings }) => {
                 </Grid>
             }
         </Grid>
-    )
-};
-
-const Stream = (data) => {
-    const { settings: streamSettings, ...stream } = data;
-            
-    const props = {
-        ...stream,
-        streamSettings
-    };
-
-    return (
-        <Component {...props} />
     )
 };
 

@@ -5,7 +5,7 @@
 import ReactMarkdown from 'react-markdown';
 import { Grid } from '@mui/material';
 
-const Component = ({ content }) => {
+const Wysiwyg = ({ content }) => {
     return (
         <Grid container justifyContent="center">
             <Grid item xs={12}>
@@ -14,18 +14,6 @@ const Component = ({ content }) => {
                 ></ReactMarkdown>
             </Grid>
         </Grid>
-    )
-};
-
-const Wysiwyg = (data) => {
-    const { content } = data;
-
-    const props = {
-        content
-    };
-
-    return (
-        <Component {...props} />
     )
 };
 

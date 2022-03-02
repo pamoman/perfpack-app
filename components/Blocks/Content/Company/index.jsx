@@ -8,7 +8,7 @@ import defaultsettings from './settings';
 import { Grid, Typography } from '@mui/material';
 import styles from './styles';
 
-const Component = ({ userSettings }) => {
+const Company = ({ userSettings }) => {
     const settings = { ...defaultsettings, ...userSettings };
 
     return (
@@ -31,18 +31,6 @@ const Component = ({ userSettings }) => {
                 </Grid>
             }
         </Grid>
-    )
-};
-
-const Company = (data) => {
-    const { settings: companySettings } = data;
-
-    const props = {
-        userSettings: companySettings
-    };
-
-    return (
-        <Component {...props} />
     )
 };
 
