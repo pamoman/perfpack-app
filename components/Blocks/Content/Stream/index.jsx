@@ -7,7 +7,7 @@ import defaultSettings from './settings';
 import { Grid, Typography } from '@mui/material';
 import styles from './styles';
 
-const PamoStream = ({ url, caption, userSettings }) => {
+const Component = ({ url, caption, userSettings }) => {
     const settings = { ...defaultSettings, ...userSettings };
 
     return (
@@ -34,4 +34,17 @@ const PamoStream = ({ url, caption, userSettings }) => {
     )
 };
 
-export default PamoStream;
+const Stream = (data) => {
+    const { settings: streamSettings, ...stream } = data;
+            
+    const props = {
+        ...stream,
+        streamSettings
+    };
+
+    return (
+        <Component {...props} />
+    )
+};
+
+export default Stream;

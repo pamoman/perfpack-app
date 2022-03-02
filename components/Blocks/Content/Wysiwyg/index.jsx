@@ -5,7 +5,7 @@
 import ReactMarkdown from 'react-markdown';
 import { Grid } from '@mui/material';
 
-const PamoWysiwyg = ({ content }) => {
+const Component = ({ content }) => {
     return (
         <Grid container justifyContent="center">
             <Grid item xs={12}>
@@ -17,4 +17,16 @@ const PamoWysiwyg = ({ content }) => {
     )
 };
 
-export default PamoWysiwyg;
+const Wysiwyg = (data) => {
+    const { content } = data;
+
+    const props = {
+        content
+    };
+
+    return (
+        <Component {...props} />
+    )
+};
+
+export default Wysiwyg;

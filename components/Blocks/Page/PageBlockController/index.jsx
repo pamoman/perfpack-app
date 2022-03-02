@@ -5,44 +5,15 @@
 import * as Page from '@components/Blocks/Page';
 
 const PamoPageBlockController = ({ __typename, ...rest }, index) => {
-    let Block;
-    let props;
-
-    switch(__typename) {
-        case 'ComponentPageSeo':
-            const { image: { data: { attributes: image } }, ...pageSeo } = rest;
-
-            props = {
-                image,
-                ...pageSeo
-            };
-
-            Block = Page.Seo;
-            break;
-        case 'ComponentPageHeading':
-            const { ...pageHeading } = rest;
-
-            props = {
-                ...pageHeading
-            };
-
-            Block = Page.Heading;
-            break;
-        case 'ComponentPageHero':
-            const { image: { data: { attributes: heroImage } }, page_heading: heroHeading, links, settings: heroSettings } = rest;
-
-            props = {
-                ...heroImage,
-                ...heroHeading,
-                links,
-                userSettings: heroSettings
-            };
-
-            Block = Page.Hero;
-            break;
+    const blocks = {
+        'ComponentPageSeo': { Block: Page.Seo, props: rest },
+        'ComponentPageHeading': { Block: Page.Heading, props: rest },
+        'ComponentPageHero': { Block: Page.Hero, props: rest },
     }
 
-    return Block ? <Block key={`index-${index}`} {...props} /> : null;
+    const { Block, props } = blocks[__typename] || {};
+
+    return Block ? <Block key={`page-block-${index}`} {...props} /> : null;
 };
 
 export default PamoPageBlockController;

@@ -5,7 +5,7 @@
 import Head from 'next/head';
 import { globals } from '@data/Global';
 
-const PamoSEO = ({ title, description, url, image }) => {
+const Component = ({ title, description, url, image }) => {
     const { header } = globals;
     const { formats } = image;
     const { url: imageUrl } = formats?.small || formats?.thumbnail || null;
@@ -21,4 +21,17 @@ const PamoSEO = ({ title, description, url, image }) => {
     )
 };
 
-export default PamoSEO;
+const Seo = (props) => {
+    const { image: { data: { attributes: image } }, ...pageSeo } = props;
+
+    props = {
+        image,
+        ...pageSeo
+    };
+
+    return (
+        <Component {...props} />
+    )
+};
+
+export default Seo;

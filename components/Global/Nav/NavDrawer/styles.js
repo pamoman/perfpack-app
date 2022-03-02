@@ -29,7 +29,7 @@ const styles = {
             text: {
                 color: "iconButton.primary.disabled",
                 "&.active": { 
-                    olor: "iconButton.primary.main"
+                    color: "iconButton.primary.main"
                 }
             }
         },

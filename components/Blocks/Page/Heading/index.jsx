@@ -4,7 +4,7 @@
 
 import { Typography } from '@mui/material';
 
-const PamoHeading = ({ heading, variant }) => {
+const Component = ({ heading, variant }) => {
     return (
         <Typography component={"h1"} variant={variant} align="center" gutterBottom>
             {heading}
@@ -12,4 +12,16 @@ const PamoHeading = ({ heading, variant }) => {
     )
 };
 
-export default PamoHeading;
+const Heading = (props) => {
+    const { ...pageHeading } = props;
+
+    props = {
+        ...pageHeading
+    };
+
+    return (
+        <Component {...props} />
+    )
+};
+
+export default Heading;

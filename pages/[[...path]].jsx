@@ -4,7 +4,7 @@
 
 import { initializeApollo, addApolloState } from '@config/client';
 import { useQuery } from '@apollo/client';
-import { PAGE, PAGES } from '@graphql/page-content';
+import { PAGE, PAGES } from '@graphql/queries';
 import { Page } from '@components/Global';
 import utils from '@utils';
 

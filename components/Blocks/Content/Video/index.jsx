@@ -7,7 +7,7 @@ import defaultSettings from './settings';
 import { Grid, Typography } from '@mui/material';
 import styles from './styles';
 
-const PamoVideo = ({ url, caption, userSettings }) => {
+const Component = ({ url, caption, userSettings }) => {
     const settings = { ...defaultSettings, ...userSettings };
 
     return (
@@ -35,4 +35,17 @@ const PamoVideo = ({ url, caption, userSettings }) => {
     )
 };
 
-export default PamoVideo;
+const Video = (data) => {
+    const { settings: videoSettings, video: { data: { attributes: video } } } = data;
+
+    const props = {
+        ...video,
+        userSettings: videoSettings
+    };
+
+    return (
+        <Component {...props} />
+    )
+};
+
+export default Video;

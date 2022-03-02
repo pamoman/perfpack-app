@@ -15,7 +15,8 @@ import Wysiwyg from './Wysiwyg';
 import Company from './Company';
 import Map from './Map';
 import Table from './Table';
-import People, { PersonCard } from './People';
+import { People, Staff, PersonCard } from './People';
+import { Product } from './Ecommerce';
 
 export {
     ContentController,
@@ -31,7 +32,12 @@ export {
     Company,
     Map,
     Table,
-    People
+    People,
+    Staff
+};
+
+export {
+    Product
 };
 
 export {

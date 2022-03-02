@@ -11,7 +11,7 @@ import { Grid, Box, Typography } from '@mui/material';
 import { FiberManualRecord, KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
 import styles from './styles';
 
-const PamoSlideshow = ({ images, userSettings }) => {
+const Component = ({ images, userSettings }) => {
     const settings = { ...defaultSettings, ...userSettings };
     const [currentSlide, setCurrentSlide] = useState(0);
     const [loaded, setLoaded] = useState(false);
@@ -164,4 +164,17 @@ const PamoSlideshow = ({ images, userSettings }) => {
     )
 };
 
-export default PamoSlideshow;
+const Slideshow = (data) => {
+    const { settings: slideshowSettings, images: { data: images } } = data;
+
+    const props = {
+        images,
+        userSettings: slideshowSettings
+    };
+
+    return (
+        <Component {...props} />
+    )
+};
+
+export default Slideshow;

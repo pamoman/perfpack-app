@@ -8,7 +8,7 @@ import defaultsettings from './settings';
 import { Grid, Typography } from '@mui/material';
 import styles from './styles';
 
-const PamoCompany = ({ userSettings }) => {
+const Component = ({ userSettings }) => {
     const settings = { ...defaultsettings, ...userSettings };
 
     return (
@@ -34,4 +34,16 @@ const PamoCompany = ({ userSettings }) => {
     )
 };
 
-export default PamoCompany;
+const Company = (data) => {
+    const { settings: companySettings } = data;
+
+    const props = {
+        userSettings: companySettings
+    };
+
+    return (
+        <Component {...props} />
+    )
+};
+
+export default Company;

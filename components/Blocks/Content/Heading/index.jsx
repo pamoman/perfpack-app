@@ -5,7 +5,7 @@
 import defaultSettings from './settings';
 import { Typography } from '@mui/material';
 
-const PamoHeading = ({ title, userSettings }) => {
+const Component = ({ title, userSettings }) => {
     const { component, variant } = { ...defaultSettings, ...userSettings };
 
     return (
@@ -15,4 +15,17 @@ const PamoHeading = ({ title, userSettings }) => {
     )
 };
 
-export default PamoHeading;
+const Heading = (data) => {
+    const { settings: headingSettings, ...heading } = data;
+
+    const props = {
+        ...heading,
+        userSettings: headingSettings
+    };
+
+    return (
+        <Component {...props} />
+    )
+};
+
+export default Heading;

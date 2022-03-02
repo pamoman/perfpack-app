@@ -85,7 +85,7 @@ const NavListItem = ({ path, label, icon }) => {
                 <Icon name={IconName} size='xl' />
             </ListItemIcon>
 
-            <ListItemText className={active} sx={styles.navList.link.text}>
+            <ListItemText className={`${active}`} sx={styles.navList.link.text}>
                 {label}
             </ListItemText>
         </>

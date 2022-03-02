@@ -2,7 +2,6 @@
  * Graphql - Content
  */
 
-import article from './blocks/article';
 import company from './blocks/company';
 import gallery from './blocks/gallery';
 import heading from './blocks/heading';
@@ -16,26 +15,27 @@ import stream from './blocks/stream';
 import video from './blocks/video';
 import wysiwyg from './blocks/wysiwyg';
 import table from './blocks/table';
+import ecommerce from './blocks/ecommerce';
 
 const blocks = `
-    ${company}
-    ${gallery}
-    ${heading}
-    ${image}
-    ${map}
-    ${pdf}
-    ${people}
-    ${slideshow}
-    ${staff}
-    ${stream}
-    ${video}
-    ${wysiwyg}
-    ${table}
+    content {
+        ${company}
+        ${gallery}
+        ${heading}
+        ${image}
+        ${map}
+        ${pdf}
+        ${people}
+        ${slideshow}
+        ${staff}
+        ${stream}
+        ${video}
+        ${wysiwyg}
+        ${table}
+        ${ecommerce}
+    }
 `;
 
 export default `
-    content {
-        ${blocks}
-        ${article(blocks)}
-    }
+    ${blocks}
 `;

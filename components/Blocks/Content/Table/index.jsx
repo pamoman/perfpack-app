@@ -3,15 +3,15 @@
  */
 
 import defaultSettings from './settings';
-import { Grid, Typography, TableContainer, Table, TableHead, TableBody, TableRow, TableCell, Paper } from '@mui/material';
+import { TableContainer, Table as MuiTable, TableHead, TableBody, TableRow, TableCell, Paper } from '@mui/material';
 import styles from './styles';
 
-const PamoTable = ({ userSettings, name, head, rows }) => {
+const Component = ({ userSettings, name, head, rows }) => {
     const settings = { ...defaultSettings, ...userSettings };
 
     return (
         <TableContainer component={Paper}>
-            <Table size={settings.table_size} aria-label={name || "Table"}>
+            <MuiTable size={settings.table_size} aria-label={name || "Table"}>
                 {settings.show_head && head.columns && head.columns.length > 0 && (
                     <TableHead sx={styles.table.head}>
                         {settings.show_name && name &&
@@ -42,9 +42,22 @@ const PamoTable = ({ userSettings, name, head, rows }) => {
                         ))}
                     </TableBody>
                 )}
-            </Table>
+            </MuiTable>
         </TableContainer>
     )
 };
 
-export default PamoTable;
+const Table = (data) => {
+    const { settings: tableSettings, ...table } = data;
+
+    const props = {
+        ...table,
+        userSettings: tableSettings
+    };
+
+    return (
+        <Component {...props} />
+    )
+};
+
+export default Table;

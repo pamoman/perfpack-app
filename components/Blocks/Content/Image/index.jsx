@@ -2,19 +2,19 @@
  * Content Block - Image
  */
 
-import Image from 'next/image';
+import NextImage from 'next/image';
 import defaultSettings from './settings';
 import { Grid, Typography } from '@mui/material';
 import styles from './styles';
 
-const PamoImage = ({ formats, caption, alternativeText, userSettings }) => {
+const Component = ({ formats, caption, alternativeText, userSettings }) => {
     const { show_caption } = { ...defaultSettings, ...userSettings };
     const { url } = formats?.xlarge || formats?.large || formats?.medium || formats?.small;
 
     return (url ?
         <Grid container justifyContent="center">
             <Grid item xs={12}>
-                <Image 
+                <NextImage 
                     src={`${process.env.NEXT_PUBLIC_API_URL}${url}`}
                     alt={alternativeText}
                     layout='responsive'
@@ -34,4 +34,17 @@ const PamoImage = ({ formats, caption, alternativeText, userSettings }) => {
     )
 };
 
-export default PamoImage;
+const Image = (data) => {
+    const { image: { data: { attributes: image } }, settings: imageSettings } = data;
+
+    const props = {
+        ...image,
+        userSettings: imageSettings
+    };
+
+    return (
+        <Component {...props} />
+    )
+};
+
+export default Image;

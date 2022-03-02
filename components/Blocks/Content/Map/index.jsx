@@ -8,7 +8,7 @@ import { Box, Typography } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import styles from './styles';
 
-const PamoMap = ({ label, lat, lng, userSettings }) => {
+const Component = ({ label, lat, lng, userSettings }) => {
     const settings = { ...defaultSettings, ...userSettings };
 
     return (
@@ -33,4 +33,17 @@ const PamoMap = ({ label, lat, lng, userSettings }) => {
     )
 };
 
-export default PamoMap;
+const Map = (data) => {
+    const { settings: mapSettings, ...map } = data;
+
+    const props = {
+        ...map,
+        userSettings: mapSettings
+    };
+
+    return (
+        <Component {...props} />
+    )
+};
+
+export default Map;
